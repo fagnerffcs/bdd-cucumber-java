@@ -1,6 +1,5 @@
 package br.com.alura.leilao.e2e.pages;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -13,7 +12,7 @@ public class BrowserFactory {
 //	https://github.com/mozilla/geckodriver/releases	
 
 	public WebDriver createWebDriver() {
-		String webdriver = System.getProperty("browser", "htmlunit");
+		String webdriver = System.getProperty("browser", "firefox");
 		switch (webdriver) {
 			case "firefox":
 				return initFirefoxDriver();
@@ -29,12 +28,12 @@ public class BrowserFactory {
 	 * @return driver WebDriver instance
 	 */
 	private  WebDriver initChromeDriver() {
-		WebDriverManager.chromedriver().setup();
+		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
 		return new ChromeDriver();
 	}
 
 	private  WebDriver initFirefoxDriver() {
-		WebDriverManager.firefoxdriver().setup();
+		System.setProperty("webdriver.gecko.driver", "drivers/geckodriver.exe");
 		return new FirefoxDriver();
 	}
 }

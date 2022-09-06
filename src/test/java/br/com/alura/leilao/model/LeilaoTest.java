@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 
 public class LeilaoTest {
 	
-	
 	@DisplayName("um usuario pode dar lance em um leilao de outro usuario")
 	@Test
     public void deveReceberUmLance() {
