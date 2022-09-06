@@ -46,17 +46,7 @@ public class WebSecurityConfigProfileTest extends WebSecurityConfigurerAdapter {
 		http.headers().frameOptions().disable();
 		http.csrf().disable();
 	}
-	
-//	@Override
-//	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//		BCryptPasswordEncoder enconder = passwordEncoder();
-//		auth.inMemoryAuthentication().passwordEncoder(enconder)
-//			.withUser("fulano").password(enconder.encode("pass")).roles("USER")
-//			.and()
-//			.withUser("cigano").password(enconder.encode("pass")).roles("USER")
-//			.and()
-//			.withUser("beltrano").password(enconder.encode("pass")).roles("USER");
-//	}
+
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -80,7 +70,5 @@ public class WebSecurityConfigProfileTest extends WebSecurityConfigurerAdapter {
         authProvider.setPasswordEncoder(passwordEncoder());
         return authProvider;
     }
-	
-	
 	
 }

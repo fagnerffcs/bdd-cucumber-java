@@ -1,5 +1,7 @@
 package br.com.alura.leilao.model;
 
+import lombok.Data;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +14,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "users")
+@Data
 public class Usuario {
 
 	@Id
@@ -28,7 +31,6 @@ public class Usuario {
 	@NotBlank
 	@Column(name="password")
 	private String senha;
-	
 
 	@NotNull
 	@NotBlank
@@ -54,58 +56,10 @@ public class Usuario {
 		this.senha = password;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
-
-	public boolean isEnabled() {
-		return enabled;
-	}
-
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
-
-	public String getSenha() {
-		return this.senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
 	public void activa() {
 		this.enabled = true;
 	}
-	
+
 	public void desativa() {
 		this.enabled = false;
 	}

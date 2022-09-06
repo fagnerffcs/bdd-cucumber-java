@@ -1,5 +1,7 @@
 package br.com.alura.leilao.model;
 
+import lombok.Data;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -21,6 +23,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 @Entity
+@Data
 public class Leilao {
 
 	@Id
@@ -76,14 +79,6 @@ public class Leilao {
 		this.dataAbertura = data;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public void setDataAbertura(LocalDate dataAbertura) {
 		this.dataAbertura = dataAbertura;
 	}
@@ -96,35 +91,6 @@ public class Leilao {
 		return java.util.Date.from(this.dataAbertura.atStartOfDay()
 			      .atZone(ZoneId.systemDefault())
 			      .toInstant());
-	}
-	
-	
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setValorInicial(BigDecimal valorInicial) {
-		this.valorInicial = valorInicial;
-	}
-
-	public BigDecimal getValorInicial() {
-		return valorInicial;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setLances(List<Lance> lances) {
-		this.lances = lances;
 	}
 
 	public boolean propoe(Lance lanceAtual) {

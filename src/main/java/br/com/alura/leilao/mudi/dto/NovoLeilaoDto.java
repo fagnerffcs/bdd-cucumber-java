@@ -11,7 +11,9 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import br.com.alura.leilao.model.Leilao;
+import lombok.Data;
 
+@Data
 public class NovoLeilaoDto {
 	
 	private static DateTimeFormatter ofPattern = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -55,22 +57,6 @@ public class NovoLeilaoDto {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public BigDecimal getValorInicial() {
-		return valorInicial;
-	}
-
-	public void setValorInicial(BigDecimal valorInicial) {
-		this.valorInicial = valorInicial;
-	}
-
-	public String getDataAbertura() {
-		return dataAbertura;
-	}
-
-	public void setDataAbertura(String dataAbertura) {
-		this.dataAbertura = dataAbertura;
 	}
 
 	public Leilao toLeilao() {
